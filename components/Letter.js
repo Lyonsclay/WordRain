@@ -8,15 +8,15 @@ export default class Letter extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { drop: new Animated.ValueXY(props.initialXY) }
+    this.state = { drop: new Animated.Value(props.initialY) }
   }
 
   componentDidMount() {
     Animated.spring(
       this.state.drop, {
-        tension: 92,
+        tension: 192,
         friction: 72,
-        toValue: this.props.finalXY,
+        toValue: this.props.finalY,
       }
     ).start()
   }
@@ -26,8 +26,8 @@ export default class Letter extends Component {
 
     return (
       <AnimatedGroup
-        x={drop.x}
-        y={drop.y}
+      width={40}
+        y={drop}
       >
         <Text font="34px helvetica" fill="gray">
           {this.props.letter}
