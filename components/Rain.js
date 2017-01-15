@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Surface, Text, Group, Path } from 'ReactNativeART'
-import { View, Animated, StyleSheet } from 'react-native'
+import { Surface, Group, Path } from 'ReactNativeART'
+import { View, Text, Animated, StyleSheet } from 'react-native'
 import Letter from './Letter'
 
 const letters = [
@@ -26,22 +26,22 @@ const raining = keys.map((l, i) =>
     <Letter
       key={i}
       letter={l}
-      initialY={20}
-      finalY={400}
+      initialY={letters[l]}
+      finalY={300}
     />
   )
 )
 
 const Rain = () => (
-  <Surface width={36} height={600} style={styles.surface}>
-    {raining} 
-  </Surface>
+  <View style={styles.view}>
+  {raining}
+  </View>
 )
 const styles = StyleSheet.create({
-  surface: {
-    flex: -1,
-flexDirection: 'row',
-    justifyContent: 'space-between',
+  view: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   }
 })
 export default Rain
